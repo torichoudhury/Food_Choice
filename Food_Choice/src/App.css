@@ -1,0 +1,9 @@
+body{
+    background: linear-gradient(
+        70deg,
+        rgba(84, 115, 202, 0.5) 0% ,
+        rgba(0, 212, 255, 0.5) 100%
+
+    );
+}
+/* App.css */
