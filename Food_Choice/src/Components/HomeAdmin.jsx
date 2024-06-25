@@ -108,7 +108,7 @@ export default function HomeAdmin() {
                   className="flex flex-row justify-evenly items-center p-2 bg-white rounded-lg shadow-sm"
                 >
                     <p className="font-bold w-1/2 pl-4">Uid:  {user.uid}</p>
-                    <p className="w-1/2">UserName:  {user.name}</p>
+                    <p className="w-1/2">Name:  {user.name}</p>
                 </li>
               ))}
             </ul>

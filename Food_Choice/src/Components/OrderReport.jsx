@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Headbar from "./Headbar";
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 function OrderReport() {
   const [orders, setOrders] = useState([]);
@@ -17,6 +19,24 @@ function OrderReport() {
       });
   }, [UID]);
 
+  const exportToExcel = () => {
+    const ws = XLSX.utils.json_to_sheet(orders.map(order => ({
+      "Order Date": new Date(order.ordeR_DATE).toLocaleDateString(),
+      "Vendor Name": order.v_NAME,
+      "Category": order.catA_NAME,
+      "Food Code": order.fooD_CODE,
+      "Current Status": order.ordeR_STATUS === 2
+        ? "Approved"
+        : order.ordeR_STATUS === 0
+        ? "Rejected"
+        : "Pending"
+    })));
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Orders");
+    const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    saveAs(new Blob([wbout], { type: "application/octet-stream" }), 'OrderReport.xlsx');
+  };
+
   return (
     <>
       <Headbar />
@@ -29,6 +49,12 @@ function OrderReport() {
         }}
       >
         <div className="flex flex-col items-center justify-center">
+          <button 
+            className="mb-4 px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={exportToExcel}
+          >
+            Download Excel File
+          </button>
           <div className="w-full overflow-x-auto">
             <table className="w-full">
               <thead className="bg-blue-500 text-white">

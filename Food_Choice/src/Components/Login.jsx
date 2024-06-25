@@ -73,7 +73,6 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full border-2 border-gray-100 rounded-xl p-1 mt-1 bg-transparent text-lg"
               placeholder="Enter your password"
-              minLength={8}
               required
             />
           </div>

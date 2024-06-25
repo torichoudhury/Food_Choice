@@ -97,7 +97,7 @@ function OrderApproveAdmin() {
                       </td>
                       <td className="py-2 px-4 border-b">{vendor ? vendor.fooD_CODE: "Unknown"}</td>
                       <td className="py-2 px-4 border-b">
-                        {order.ordeR_STATUS}
+                        {order.ordeR_STATUS==1?'Pending':'Not Pending'}
                       </td>
                       <td className="py-2 px-4 border-b">
                         <button
