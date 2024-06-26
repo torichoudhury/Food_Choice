@@ -39,7 +39,7 @@ function HeadbarAdmin() {
         </a>
       </div>
       <div className="text-lg flex justify-center h-2/3 w-4/5">
-        Welcome, {userName}
+             Welcome to GourmetTrack
       </div>
       <div>
         <ul className="flex justify-between">

@@ -17,26 +17,17 @@ function Home() {
     <>
       <Headbar />
       <div
-        className="w-11/12 h-[38rem] mt-12 ml-16 flex items-center justify-center relative"
+        className="w-11/12 h-[38rem] mt-12 mx-auto flex items-center justify-center"
         style={{
           background:
             "linear-gradient(145deg, rgba(173, 216, 230, 0.6), rgba(30, 144, 255, 0.4))",
           boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
         }}
       >
-        <div className="bg-white shadow-lg rounded-lg p-4 w-full h-3/4 m-20 flex flex-col justify-between relative">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">{user.name}</h1>
-            <p className="text-2xl text-gray-600">Your UID: {user.uid}</p>
-          </div>
-          <div className="absolute bottom-6 right-4">
-            <Link
-              to="/orders"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md"
-            >
-              Go to Orders
-            </Link>
-          </div>
+        <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md flex flex-col items-center text-center">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome, {user.name}</h1>
+          <p className="text-2xl text-gray-600 mb-6">UID: {user.uid}</p>
+        
         </div>
       </div>
     </>
